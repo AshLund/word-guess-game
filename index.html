@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <title> Brewers Guessing Game </title>
+</head>
+
+<body>
+    <header>
+    <h1> Brewers Word Guessing game</h1>
+    </header>
+    
+
+<div class="game">
+<p id="directions-text"> Press any key to start. Guess the Berwers-related word by guessing letters. </p>
+</div>
+
+<script type="text/javascript">
+
+
+//records when person hits key, randomly chooses a word from the list//
+document.onkeyup = function (event) {
+var userInput= event.key;
+var words = [
+    "bernie brewer", "christian yelich", "miller park", "ryan braun", "roll out the barrell", "craig counsell", "hank", "home run", "racing sausages", "peanuts"
+];
+var computerWords = words[Math.floor(Math.random() *words.length)];
+
+console.log (userInput)
+
+//creates the underscores in places of letters, length is for each word//
+var answer = [];
+for (var i=0; i <computerWords.length; i++) {
+    answer[i] = "_";
+}
+var remainingLetters = computerWords.length;
+
+document.write (answer);
+
+var guesses=15;
+
+
+//if user input matches the word chosen, it will change the "_" to the letter in the right place//
+for (var j=0; j <computerWords.length; j++) {
+    if (computerWords[j] === userInput) {
+    answer[j] = userInput;
+    remainingLetters--;
+    }
+    else {
+       guesses--;
+    }
+}
+
+userInput.guesses;
+   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+</script>
+    
+</body>
+</html>
