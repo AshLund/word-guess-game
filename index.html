@@ -23,65 +23,50 @@
 
 
 <script type="text/javascript">
-
 var words = [
     "ipa", "saison", "lager", "farmhouse", "ale", "stout", "porter", "blonde", "pilsner", "wheat",
 ];
-
-
 //records when person hits key, randomly chooses a word from the list//
-document.onkeyup = function (event) {
-var userInput= event.key;
+document.body.onkeyup = function (e) {
+    if(e.keyCode == 32) {
 
+ 
 
 var computerWords = words[Math.floor(Math.random() *words.length)];
 
-console.log (userInput)
 
 //creates the underscores in places of letters, length is for each word//
 var answer = [];
 for (var i=0; i <computerWords.length; i++) {
     answer[i] = "_"; }
-
 var remainingLetters = computerWords.length;
+
+document.onkeyup = function (event) {
+var userInput= event.key;
+
+console.log (userInput)
 
 for (var j=0; j <computerWords.length; j++) {
     if (computerWords[j] === userInput) {
     answer[j] = userInput;
     remainingLetters--;
     }
-    else
-     {
-       answer[j] != userInput;
+    else {
+        (computerWords[j] !=userInput)
     }
-
 }
-var div = document.getElementById("answers-text") 
 
-    for (var k=0; k < answer.length; k++) {
-    var text=document.createElement('p');
-    text.textContent=answer[k];
-    div.appendChild(text);
-    }
+var guesses=15;
 
+document.getElementById("answers-text").innerHTML=answer
 
 
 console.log(answer)
 console.log(computerWords)
-
-
-var guesses=15;
-
-
-
-//if user input matches the word chosen, it will change the "_" to the letter in the right place//
+console.log(guesses)
 }
-
-
-
-
-
-
+}
+}
     
 </script>
     
