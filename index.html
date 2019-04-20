@@ -5,46 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <title> Beer Style Guessing Game </title>
+    <title> Milwaukee Brewers Guessing Game </title>
 </head>
 
 <body>
     <header>
-    <h1> Beer Style Word Guessing game</h1>
+    <h1> Milwaukee Brewers Guessing game</h1>
     </header>
     
 
 <div class="game">
-<p id="directions-text"> Press any key to start. Guess the beer style word by guessing letters. </p>
-<p id="guesses-text"></p>
+<p id="directions-text"> Press any key to start. Guess the Milawukee Brewers word by guessing letters. </p>
+<p> Remaining Guesses: </p><div id="guesses-text"></div>
 <div id="answers-text"></div>
 </div>
 
 
-
 <script type="text/javascript">
 var words = [
-    "ipa", "saison", "lager", "farmhouse", "ale", "stout", "porter", "blonde", "pilsner", "wheat",
+    "hank", "craig counsell", "christian yelich", "miller park", "ryan braun", "roll out the barrell", "racing sausages", "bernie brewer",
 ];
-//records when person hits key, randomly chooses a word from the list//
-document.body.onkeyup = function (e) {
-    if(e.keyCode == 32) {
 
  
-
 var computerWords = words[Math.floor(Math.random() *words.length)];
-
-
 //creates the underscores in places of letters, length is for each word//
 var answer = [];
+
 for (var i=0; i <computerWords.length; i++) {
     answer[i] = "_"; }
+
 var remainingLetters = computerWords.length;
+
+var guessesText=document.getElementById('guesses-text');
+var guesses=0;
+
 
 document.onkeyup = function (event) {
 var userInput= event.key;
-
 console.log (userInput)
+
 
 for (var j=0; j <computerWords.length; j++) {
     if (computerWords[j] === userInput) {
@@ -52,22 +51,21 @@ for (var j=0; j <computerWords.length; j++) {
     remainingLetters--;
     }
     else {
-        (computerWords[j] !=userInput)
+        guesses++;
     }
+
+
+ 
 }
 
-var guesses=15;
-
 document.getElementById("answers-text").innerHTML=answer
-
-
 console.log(answer)
 console.log(computerWords)
 console.log(guesses)
 }
-}
-}
-    
+
+
+
 </script>
     
 </body>
