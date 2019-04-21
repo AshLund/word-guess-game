@@ -39,23 +39,18 @@ for (var i=0; i <computerWords.length; i++) {
 var remainingLetters = computerWords.length;
 
 
-
-
-
-document.onkeyup = function (event) {
-var userInput= event.key;
-console.log (userInput)
-
-
-
-
 guesses=10;
 var guessesText=document.getElementById('guesses-text').innerHTML=guesses;
 
+
+document.onkeyup = function (event) {
+var userInput= event.key.toLowerCase ();
+console.log (userInput)
+
+
 var guesses
 var lettersGuessed=[]
-lettersGuessed=userInput;
-
+lettersGuessed.push(userInput);
 
 document.getElementById("letters-text").innerHTML=lettersGuessed
 
@@ -64,6 +59,7 @@ for (var j=0; j <computerWords.length; j++) {
     answer[j] = userInput;
     remainingLetters--;
     }
+
 
     document.getElementById("answers-text").innerHTML=answer
 }
