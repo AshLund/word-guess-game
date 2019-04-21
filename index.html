@@ -16,8 +16,10 @@
 
 <div class="game">
 <p id="directions-text"> Press any key to start. Guess the Milawukee Brewers word by guessing letters. </p>
-<p> Remaining Guesses: </p><div id="guesses-text"></div>
 <div id="answers-text"></div>
+<p> Remaining Guesses: </p><div id="guesses-text"></div>
+<p> Guessed Letters: </p> <div id="letters-text"</div>
+
 </div>
 
 
@@ -36,8 +38,8 @@ for (var i=0; i <computerWords.length; i++) {
 
 var remainingLetters = computerWords.length;
 
-var guessesText=document.getElementById('guesses-text');
-var guesses=0;
+
+
 
 
 document.onkeyup = function (event) {
@@ -45,20 +47,35 @@ var userInput= event.key;
 console.log (userInput)
 
 
+
+
+guesses=10;
+var guessesText=document.getElementById('guesses-text').innerHTML=guesses;
+
+var guesses
+var lettersGuessed=[]
+lettersGuessed=userInput;
+
+
+document.getElementById("letters-text").innerHTML=lettersGuessed
+
 for (var j=0; j <computerWords.length; j++) {
     if (computerWords[j] === userInput) {
     answer[j] = userInput;
     remainingLetters--;
     }
-    else {
-        guesses++;
-    }
 
-
- 
+    document.getElementById("answers-text").innerHTML=answer
 }
 
-document.getElementById("answers-text").innerHTML=answer
+
+
+
+
+
+
+
+
 console.log(answer)
 console.log(computerWords)
 console.log(guesses)
