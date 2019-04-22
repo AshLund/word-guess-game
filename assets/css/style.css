@@ -27,13 +27,18 @@ p {
 }
 
 img {
-    position: relative;
     opacity: 0.2;
 }
+
+.container {
+    position: relative;
+}
+
+
 
 .game {
     border-style: dotted;
     position: absolute;
-    left: 250px;
     top: 150px;
+    width: 100%;
 }
