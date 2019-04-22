@@ -1,4 +1,33 @@
-html {
-    background: url(assets/images/miller.jpg) no-repeat center center;
-    background-size: cover;
+header {
+   text-align: center;
+   background: midnightblue;
+   position: relative;
+   color: white;
+   height: 55px;
+   margin-top: 0;
+   margin: -20px;
+   padding: 20px;
+}
+
+h1 {
+    font-family:'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+img {
+    float: left;
+    position: relative;
+    padding: 10px;
+}
+
+body {
+   text-align: center;
+   background-color: lightgray;
+}
+
+p {
+    font-family:'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+.game {
+    border-style: dotted;
 }

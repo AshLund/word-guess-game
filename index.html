@@ -3,18 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
     <title> Milwaukee Brewers Guessing Game </title>
 </head>
 
 <body>
     <header>
-    <h1> Milwaukee Brewers Guessing game</h1>
+    <h1> Milwaukee Brewers Guessing Game</h1>
     </header>
     
+    <br>
+    <br>
 
 <div class="game">
+    <br>
+    <img scr="assets/images/miller.jgp" alt: "Miller Park">
 <p id="directions-text"> Press any key to start. Guess the Milawukee Brewers word by guessing letters. </p>
 <div id="answers-text"></div>
 <p> Remaining Guesses: </p><div id="guesses-text"></div>
@@ -39,30 +43,45 @@ for (var i=0; i <computerWords.length; i++) {
 var remainingLetters = computerWords.length;
 
 
-guesses=10;
-var guessesText=document.getElementById('guesses-text').innerHTML=guesses;
 
 
 document.onkeyup = function (event) {
 var userInput= event.key.toLowerCase ();
 console.log (userInput)
 
-
 var guesses
-var lettersGuessed=[]
-lettersGuessed.push(userInput);
+guesses=0;
+var guessesText=document.getElementById('guesses-text').innerHTML=guesses;
 
-document.getElementById("letters-text").innerHTML=lettersGuessed
+
+var lettersGuessed=userInput
+var lettersGuessedAll=[];
+lettersGuessedAll.push(lettersGuessed);
+
+document.getElementById("letters-text").innerHTML=lettersGuessedAll
 
 for (var j=0; j <computerWords.length; j++) {
     if (computerWords[j] === userInput) {
     answer[j] = userInput;
     remainingLetters--;
     }
+}
+
+//   else  if (computerWords[j] != userInput) {
+//         guesses++;
+//     }
+
+   
+for (var k=0; k <computerWords.length; k++) {
+    if (computerWords[k] != userInput) {
+        guesses
+    }
+
+}
 
 
     document.getElementById("answers-text").innerHTML=answer
-}
+
 
 
 
