@@ -23,7 +23,7 @@
 <p id="directions-text"> Press any key to start. Guess the Milawukee Brewers word by guessing letters. </p>
 <div id="answers-text"></div>
 <p> Remaining Guesses: </p><div id="guesses-text"></div>
-<p> Guessed Letters: </p> <div id="letters-text"</div>
+<p> Guessed Letters: </p> <div id="letters-text"></div>
 
 </div>
 
@@ -35,16 +35,28 @@ var words = [
     "hank", "craig counsell", "christian yelich", "miller park", "ryan braun", "roll out the barrell", "racing sausages", "bernie brewer",
 ];
 
- 
 var computerWords = words[Math.floor(Math.random() *words.length)];
 //creates the underscores in places of letters, length is for each word//
-var answer = [];
+
+var userInput;
+var wrongGuesses=[]
+var guesses=9
+
+
+
+ 
+var lettersGuessed;
+var lettersGuessedDom=document.getElementById("letters-text")
+
+var answer = []
 
 for (var i=0; i <computerWords.length; i++) {
-    answer[i] = "_"; }
+    answer[i]="_";
 
-var remainingLetters = computerWords.length;
+}
 
+var remainingLetters=computerWords.length;
+console.log(remainingLetters)
 
 
 
@@ -52,44 +64,73 @@ document.onkeyup = function (event) {
 var userInput= event.key.toLowerCase ();
 console.log (userInput)
 
-var guesses
-guesses=0;
-var guessesText=document.getElementById('guesses-text').innerHTML=guesses;
 
+// var lettersGuessedAll=[];
+// lettersGuessedAll.push(lettersGuessed);
 
-var lettersGuessed=userInput
-var lettersGuessedAll=[];
-lettersGuessedAll.push(lettersGuessed);
+// document.getElementById("letters-text").innerHTML=lettersGuessedAll
 
-document.getElementById("letters-text").innerHTML=lettersGuessedAll
+// 
+var answerBlank= document.getElementById("answers-text")
+answerBlank.textContent=answer;
 
-for (var j=0; j <computerWords.length; j++) {
-    if (computerWords[j] === userInput) {
-    answer[j] = userInput;
-    remainingLetters--;
-    }
+if (computerWords.indexOf(userInput) != -1 ) {
+    
+
+for (var j=0; j <answer.length; j++) {
+    if (computerWords[j] === userInput)  {
+    answer[j] = userInput; 
+    userInput.innerHTML=answer.join("");
+
+  answerBlank.textContent=answer;
+        
+    } else {
+            lettersGuessed=lettersGuessed+userInput;
+        }
+
+   
+     console.log(wrongGuesses)
+    
+     console.log(guesses);
+     
 }
+}
+
+else {
+    guesses--;
+    document.getElementById("guesses-text").innerHTML=guesses;
+}
+
+wrongGuesses.push(userInput);
+lettersGuessedDom.textContent=wrongGuesses; 
+
+}
+
+//  if (computerWords.indexOf(userInput)!=-1) {
+//    while(computerWords.indexOf(userInput)!=-1) {
+//        answer[computerWords.indexOf(userInput)]=userInput;
+//        computerWords[computerWords.indexOf(userInput)]="_";
+//     }
+//  } else {
+//     guesses--;
+//     lettersGuessed=lettersGuessed+userInput;
+//    lettersGuessedDom.textContent=lettersGuessed;
+// }
+
+
+
+
+
+
+// if (answer===computerWords) {
+//     resetGame();
+// }
+
+// }
 
 //   else  if (computerWords[j] != userInput) {
 //         guesses++;
 //     }
-
-   
-for (var k=0; k <computerWords.length; k++) {
-    if (computerWords[k] != userInput) {
-        guesses
-    }
-
-}
-
-
-    document.getElementById("answers-text").innerHTML=answer
-
-
-
-
-
-
 
 
 
@@ -97,7 +138,7 @@ for (var k=0; k <computerWords.length; k++) {
 console.log(answer)
 console.log(computerWords)
 console.log(guesses)
-}
+
 
 
 
