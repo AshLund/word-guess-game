@@ -25,7 +25,10 @@
 <p> Remaining Guesses: </p><div id="guesses-text"></div>
 <p> Guessed Letters: </p> <div id="letters-text"></div>
 
-</div>
+<br>
+<br>
+<div id="won"></div>
+<div id="lose"></div>
 
 </div>
 
@@ -41,6 +44,9 @@ var computerWords = words[Math.floor(Math.random() *words.length)];
 var userInput;
 var wrongGuesses=[]
 var guesses=9
+document.getElementById("guesses-text").innerHTML=guesses;
+var won= "Great Job!"
+var lose="You Lost"
 
 
 
@@ -52,8 +58,11 @@ var answer = []
 
 for (var i=0; i <computerWords.length; i++) {
     answer[i]="_";
-
 }
+answer.join(" ");
+
+//gets underscores in place of words
+
 
 var remainingLetters=computerWords.length;
 console.log(remainingLetters)
@@ -64,13 +73,9 @@ document.onkeyup = function (event) {
 var userInput= event.key.toLowerCase ();
 console.log (userInput)
 
+//gets user input on clicks
 
-// var lettersGuessedAll=[];
-// lettersGuessedAll.push(lettersGuessed);
 
-// document.getElementById("letters-text").innerHTML=lettersGuessedAll
-
-// 
 var answerBlank= document.getElementById("answers-text")
 answerBlank.textContent=answer;
 
@@ -81,8 +86,10 @@ for (var j=0; j <answer.length; j++) {
     if (computerWords[j] === userInput)  {
     answer[j] = userInput; 
     userInput.innerHTML=answer.join("");
+    remainingLetters--;
 
   answerBlank.textContent=answer;
+  
         
     } else {
             lettersGuessed=lettersGuessed+userInput;
@@ -99,6 +106,9 @@ for (var j=0; j <answer.length; j++) {
 else {
     guesses--;
     document.getElementById("guesses-text").innerHTML=guesses;
+    if (guesses===0) {
+    document.getElementById("lose").innerHTML=lose;
+    }
 }
 
 wrongGuesses.push(userInput);
@@ -106,31 +116,12 @@ lettersGuessedDom.textContent=wrongGuesses;
 
 }
 
-//  if (computerWords.indexOf(userInput)!=-1) {
-//    while(computerWords.indexOf(userInput)!=-1) {
-//        answer[computerWords.indexOf(userInput)]=userInput;
-//        computerWords[computerWords.indexOf(userInput)]="_";
-//     }
-//  } else {
-//     guesses--;
-//     lettersGuessed=lettersGuessed+userInput;
-//    lettersGuessedDom.textContent=lettersGuessed;
-// }
+// if (remainingLetters==computerWords) {
+//     document.getElementById("won").innerHTML=won;
+//     var computerWords = words[Math.floor(Math.random() *words.length)];
+//     }else {}
 
 
-
-
-
-
-// if (answer===computerWords) {
-//     resetGame();
-// }
-
-// }
-
-//   else  if (computerWords[j] != userInput) {
-//         guesses++;
-//     }
 
 
 
