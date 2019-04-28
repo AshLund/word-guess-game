@@ -66,7 +66,14 @@ answer.join(" ");
 
 var remainingLetters=computerWords.length;
 console.log(remainingLetters)
+//number of blank spaces
 
+function lost ()
+ {
+    computerWords = 0;
+    guesses=0; 
+    userInput=0;
+ }
 
 
 document.onkeyup = function (event) {
@@ -108,6 +115,7 @@ else {
     document.getElementById("guesses-text").innerHTML=guesses;
     if (guesses===0) {
     document.getElementById("lose").innerHTML=lose;
+    lost ();
     }
 }
 
