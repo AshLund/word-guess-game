@@ -58,10 +58,11 @@ var answer = []
 
 for (var i=0; i <computerWords.length; i++) {
     answer[i]="_";
+    
 }
-answer.join(" ");
 
 //gets underscores in place of words
+
 
 
 var remainingLetters=computerWords.length;
@@ -75,16 +76,23 @@ function lost ()
     userInput=0;
  }
 
+ var answerBlank=document.getElementById("answers-text")
+    answerBlank.innerHTML=answer.join(" ");
 
 document.onkeyup = function (event) {
 var userInput= event.key.toLowerCase ();
 console.log (userInput)
 
 //gets user input on clicks
+console.log(answer)
+
+// var answerBlank= document.getElementById("answers-text")
+// answerBlank.textContent=answer;
 
 
-var answerBlank= document.getElementById("answers-text")
-answerBlank.textContent=answer;
+   
+
+
 
 if (computerWords.indexOf(userInput) != -1 ) {
     
@@ -95,7 +103,8 @@ for (var j=0; j <answer.length; j++) {
     userInput.innerHTML=answer.join("");
     remainingLetters--;
 
-  answerBlank.textContent=answer;
+  
+  answerBlank.textContent=answer.join(" ")
   
         
     } else {
