@@ -20,7 +20,7 @@
 <img src="assets/images/miller3.jpg" alt="Miller Park">
 
 <div class="game">
-<p id="directions-text"> Press any key to start. Guess the Milawukee Brewers word by guessing letters. </p>
+<p id="directions-text"> Press any key to start. Guess the Milwaukee Brewers word by guessing letters. </p>
 <div id="answers-text"></div>
 <p> Remaining Guesses: </p><div id="guesses-text"></div>
 <p> Guessed Letters: </p> <div id="letters-text"></div>
@@ -37,6 +37,8 @@
 var words = [
     "hank", "craig counsell", "christian yelich", "miller park", "ryan braun", "roll out the barrell", "racing sausages", "bernie brewer",
 ];
+
+
 
 var computerWords = words[Math.floor(Math.random() *words.length)];
 //creates the underscores in places of letters, length is for each word//
@@ -57,9 +59,9 @@ var lettersGuessedDom=document.getElementById("letters-text")
 var answer = []
 
 for (var i=0; i <computerWords.length; i++) {
-    answer[i]="_";
-    
+    answer[i]="_";   
 }
+
 
 //gets underscores in place of words
 
@@ -69,15 +71,29 @@ var remainingLetters=computerWords.length;
 console.log(remainingLetters)
 //number of blank spaces
 
-function lost ()
- {
+var answerBlank=document.getElementById("answers-text")
+    answerBlank.innerHTML=answer.join(" ");
+
+function lost () {
     computerWords = 0;
     guesses=0; 
     userInput=0;
  }
 
- var answerBlank=document.getElementById("answers-text")
+
+
+function winner () {
+   computerWords = words[Math.floor(Math.random() *words.length)];
+   answer = [];
+    for (var i=0; i <computerWords.length; i++) {
+    answer[i]="_";   
+    }
+    answerBlank=document.getElementById("answers-text")
     answerBlank.innerHTML=answer.join(" ");
+    console.log(answer)
+}
+
+
 
 document.onkeyup = function (event) {
 var userInput= event.key.toLowerCase ();
@@ -85,13 +101,6 @@ console.log (userInput)
 
 //gets user input on clicks
 console.log(answer)
-
-// var answerBlank= document.getElementById("answers-text")
-// answerBlank.textContent=answer;
-
-
-   
-
 
 
 if (computerWords.indexOf(userInput) != -1 ) {
@@ -101,14 +110,18 @@ for (var j=0; j <answer.length; j++) {
     if (computerWords[j] === userInput)  {
     answer[j] = userInput; 
     userInput.innerHTML=answer.join("");
-    remainingLetters--;
-
+    remainingLetters=remainingLetters-1;
   
   answerBlank.textContent=answer.join(" ")
   
         
     } else {
             lettersGuessed=lettersGuessed+userInput;
+        }
+    
+        if (remainingLetters===0) {
+            document.getElementById("won").innerHTML=won;
+            winner ();
         }
 
    
@@ -133,10 +146,6 @@ lettersGuessedDom.textContent=wrongGuesses;
 
 }
 
-// if (remainingLetters==computerWords) {
-//     document.getElementById("won").innerHTML=won;
-//     var computerWords = words[Math.floor(Math.random() *words.length)];
-//     }else {}
 
 
 
