@@ -1,12 +1,12 @@
 header {
    text-align: center;
-   background: black;
+   background: #0F156B;
    position: relative;
-   color: white;
+   color: #D0D03D;
    height: 55px;
    margin-top: 0;
    margin: -20px;
-   padding: 20px;
+   padding: 40px;
 }
 
 h1 {
@@ -17,17 +17,58 @@ h1 {
 
 body {
    text-align: center;
-   background-color: darkgray;
+   background-color: white;
 }
 
 p {
     font-family:'Arial', 'Helvetica Neue', Helvetica, sans-serif;
     font-weight: bold;
-    font-size: 17px;
+    font-size: 20px;
+    color: #0F156B;
+}
+
+#won {
+    font-family:'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: #0F156B;
+}
+
+#answers-text {
+    font-family:'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: #0F156B;
+}
+
+#guesses-text {
+    font-family:'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: #0F156B;
+}
+
+#letters-text {
+    font-family:'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: #0F156B;
+}
+
+#lose {
+    font-family:'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    color: #0F156B;
+    padding: 25px;
+    
 }
 
 img {
     opacity: 0.2;
+    /* margin-top: -10px; */
+    border-color: #0F156B;
+    border-style: solid;
 }
 
 .container {
@@ -37,8 +78,8 @@ img {
 
 
 .game {
-    border-style: dotted;
     position: absolute;
-    top: 150px;
+    top: 50px;
     width: 100%;
 }
+

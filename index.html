@@ -17,7 +17,7 @@
     <br>
 
 <div class="container">
-<img src="assets/images/miller3.jpg" alt="Miller Park">
+<img src="assets/images/millerpark2.jpg" alt="Miller Park" width=1000;>
 
 <div class="game">
 <p id="directions-text"> Press any key to start. Guess the Milwaukee Brewers word by guessing letters. </p>
@@ -27,7 +27,7 @@
 
 <br>
 <br>
-<div id="won"></div>
+<div id="won"> Correct Words: </div>
 <div id="lose"></div>
 
 </div>
@@ -49,12 +49,14 @@ var guesses=9
 document.getElementById("guesses-text").innerHTML=guesses;
 var won= "Great Job!"
 var lose="You Lost"
+var numberCorrect=0;
 
 
 
  
 var lettersGuessed;
 var lettersGuessedDom=document.getElementById("letters-text")
+//gets letters gussed onto the dom
 
 var answer = []
 
@@ -73,13 +75,15 @@ console.log(remainingLetters)
 
 var answerBlank=document.getElementById("answers-text")
     answerBlank.innerHTML=answer.join(" ");
+    //replaces commas 
 
 function lost () {
     computerWords = 0;
     guesses=0; 
     userInput=0;
+    document.getElementById("won").style.display="none"
  }
-
+//if user loses
 
 
 function winner () {
@@ -95,7 +99,7 @@ function winner () {
    
 }
 
-
+//if user wins
 
 document.onkeyup = function (event) {
 var userInput= event.key.toLowerCase ();
@@ -122,7 +126,8 @@ for (var j=0; j <answer.length; j++) {
         }
     
         if (remainingLetters===0) {
-            document.getElementById("won").innerHTML=won;
+            numberCorrect ++;
+            document.getElementById("won").innerHTML="Correct Words:" + " " + numberCorrect;
             winner ();
         }
 
@@ -145,9 +150,9 @@ else {
 
 wrongGuesses.push(userInput);
 lettersGuessedDom.textContent=wrongGuesses; 
+//collects user input for dom
 
 }
-
 
 
 
